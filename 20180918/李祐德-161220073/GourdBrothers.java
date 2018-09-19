@@ -3,15 +3,30 @@ import java.util.*;
 
 
 public class GourdBrothers {
-    /*
-    private enum Color {
-        RED, ORANGE, YELLOW, GREEN, CYAN, BLUE, PURPLE;
+    private enum Gourd{
+        RED("老大", "赤", 0), ORANGE("老二", "橙", 1), YELLOW("老三", "黄", 2),
+        GREEN("老四", "绿", 3), CYAN("老五", "青", 4), BLUE("老六", "蓝", 5), PURPLE("老七", "紫", 6);
+        private String name,color;
+        private int rank;
+        private Gourd(String name, String color, int rank){
+            this.rank = rank;
+            this.name = name;
+            this.color = color;
+        }
+        public String getName(){
+            return this.name;
+        }
+        public String getColor(){
+            return this.color;
+        }
     }
-    */
-    private int rank;
-    private String name, color;
+
+    private Gourd gourd;
+
     public GourdBrothers(int rank) {
-        this.rank = rank;
+        this.gourd = Gourd.values()[rank];
+    }
+        /*
         switch(rank) {
             case (0):
                 name = new String("老大");
@@ -46,12 +61,13 @@ public class GourdBrothers {
                 color = null;
                 break;
         }
-    }
+        */
+
     public int getRank(){
-        return this.rank;
+        return this.gourd.rank;
     }
     private void report(int src, int dst){
-        System.out.println(this.name + ": " + src + "->" + dst);
+        System.out.println(this.gourd.name + ": " + src + "->" + dst);
     }
     public static void bubbleSort(ArrayList <GourdBrothers> gourdBrothersList) {
         int size = gourdBrothersList.size();
@@ -134,14 +150,14 @@ public class GourdBrothers {
     //print in rank
     public static void displayInRank(ArrayList <GourdBrothers> gourdBrothersList) {
         for(GourdBrothers i: gourdBrothersList) {
-            System.out.println(i.name);
+            System.out.println(i.gourd.name);
         }
     }
 
     //print in color
     public static void displayInColor(ArrayList <GourdBrothers> gourdBrothersList) {
         for(GourdBrothers i: gourdBrothersList) {
-            System.out.println(i.color);
+            System.out.println(i.gourd.color);
         }
     }
 
